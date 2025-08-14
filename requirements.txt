@@ -6,3 +6,4 @@ librosa
 scipy
 scikit-learn
 matplotlib
+sounddevice
