@@ -11,7 +11,6 @@ import soundfile as sf
 import librosa
 import os
 import tempfile
-import tkinter as tk
 from tkinter import filedialog, messagebox
 import sounddevice as sd
 
@@ -194,9 +193,6 @@ def extract_window_features(y, sr, turns, target_speaker=1, win=5.0, hop=2.5):
         t += hop
 
     return pd.DataFrame(rows)
-
-
-def gui_select_and_extract_with_playback(default_win=5.0, default_hop=2.5):
     root = tk.Tk()
     root.title("Interest Feature Extraction with Playback")
     root.geometry("580x500")
@@ -329,10 +325,6 @@ def main():
         help="Launch GUI to choose WAV, select speaker with audio playback, and extract features",
     )
     args = ap.parse_args()
-
-    if args.gui_playback:
-        gui_select_and_extract_with_playback(default_win=args.win, default_hop=args.hop)
-        return
 
     # 1) Diarize
     turns = diarize_two_speakers(args.wav)
