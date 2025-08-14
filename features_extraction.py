@@ -11,7 +11,6 @@ import soundfile as sf
 import librosa
 import os
 import tempfile
-from tkinter import filedialog, messagebox
 import sounddevice as sd
 
 from diarization import diarize_two_speakers, to_mono_16k
